@@ -20,6 +20,4 @@ $router->notFound(function(){
 });
 
 
-
-
 $router->run();

@@ -21,7 +21,8 @@
          */
         public function get(string $path, $handler): void
         {   
-            $path = "/testeappfacilita{$path}";
+       
+            $path = rtrim($_SERVER['REQUEST_URI'], "/ ")."$path";
             $this->addHandler(self::METHOD_GET, $path, $handler);
         }
 
@@ -35,8 +36,9 @@
          */
         public function post(string $path, $handler): void
         {
-            $path = "/testeappfacilita{$path}";
+            $path = rtrim($_SERVER['REQUEST_URI'], "/ ")."$path";
             $this->addHandler(self::METHOD_POST, $path, $handler);
+            
         }
 
 
